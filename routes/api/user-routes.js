@@ -12,9 +12,10 @@ const errorUserNotFound = res =>
 const GET_ROOT = async (req, res) => {
     try {
         const users = await User.find({});
-        res.status(200).json(users);
+        return res.status(200).json(users);
     } catch(err) {
-        res.status(500).json(err);
+        console.log('ERROR: ', err);
+        return res.status(500).json(err);
     }
 };
 
@@ -22,9 +23,10 @@ const GET_ROOT = async (req, res) => {
 const POST_ROOT = async ({ body }, res) => {
     try {
         const newUser = await User.create(body);
-        res.json(newUser);
+        return res.json(newUser);
     } catch(err) {
-        res.status(500).json(err);
+        console.log('ERROR: ', err);
+        return res.status(500).json(err);
     }
 };
 
@@ -41,7 +43,8 @@ const GET_ID = async ({ params }, res) => {
 
         return res.status(200).json(user);
     } catch(err) {
-        res.status(500).json(err);
+        console.log('ERROR: ', err);
+        return res.status(500).json(err);
     }
 };
 
@@ -60,7 +63,8 @@ const UPDATE_ID = async ({ params, body }, res) => {
 
         return res.status(200).json(user);
     } catch(err) {
-        res.status(500).json(err);
+        console.log('ERROR: ', err);
+        return res.status(500).json(err);
     }
 };
 
@@ -74,7 +78,8 @@ const DELETE_ID = async ({ params }, res) => {
 
         return res.status(200).json(user);
     } catch(err) {
-        res.status(500).json(err);
+        console.log('ERROR: ', err);
+        return res.status(500).json(err);
     }
 };
 
@@ -95,7 +100,8 @@ const POST_FRIEND = async ({ params }, res) => {
 
         return res.status(200).json(user);
     } catch(err) {
-        res.status(500).json(err);
+        console.log('ERROR: ', err);
+        return res.status(500).json(err);
     }
 };
 
@@ -115,7 +121,8 @@ const DELETE_FRIEND = async ({ params }, res) => {
 
         return res.status(200).json(user);
     } catch(err) {
-        res.status(500).json(err);
+        console.log('ERROR: ', err);
+        return res.status(500).json(err);
     }
 };
 
